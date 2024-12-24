@@ -54,7 +54,7 @@
             role="document">
             <div class="modal-content p-3">
                 <div class="modal-header">
-                    <h5 class="modal-title">إضافة كاتب</h5>
+                    <h5 class="modal-title"> {{$author ? 'تعديل الكاتب' : 'إضافة كاتب'}}</h5>
 
                 </div>
 
