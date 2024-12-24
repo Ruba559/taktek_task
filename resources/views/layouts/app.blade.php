@@ -4,19 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taktek</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
   <script src="{{asset('js/toastr.min.js')}}"></script>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-
 
   <style>
     * {
@@ -68,7 +73,7 @@
   <div class="container-fluid" style="margin-top: 100px">
     @yield('body')
 
-    @livewire('author-items')
+    @livewire('dashboard.author-items')
   </div>
 
 
@@ -77,8 +82,24 @@
   @livewire('livewire-ui-modal')
 
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+
+
+
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
   <script>
+
+window.addEventListener('close-modal', event => {
+
+$('#addmodal').modal('hide');
+
+});
+  $('#addmodal').on('hidden.bs.modal', function() {
+
+            Livewire.emit('closeModal')
+        });
   window.addEventListener('swal:modal', event => { 
 
     swal({

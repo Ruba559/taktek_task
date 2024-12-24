@@ -1,12 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\AuthorItems;
+use App\Http\Livewire\dashboard\AuthorItems;
 use App\Http\Controllers\DashboardController;
 
 Route::group([ 'prefix'=>'dashboard'],  function () {
 
-   // Route::get('/authors',action:[ DashboardController::class ,'index']);
     Route::get('/authors',AuthorItems::class);
 });
 Route::get('/', function () {
